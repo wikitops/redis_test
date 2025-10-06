@@ -38,13 +38,14 @@ def diagnose_redis_connection(redis_host, redis_port=6379):
         print("Traceroute not available")
     
     # 4. Check current network configuration
-    print("\n📋 Current Network Configuration:")
+    print("\n Current Network Configuration:")
+    hostname = socket.gethostname()
     try:
-        result = subprocess.run(['ip', 'route'], capture_output=True, text=True)
-        print("IP Route:")
-        print(result.stdout)
-    except Exception as e:
-        print(f"Could not get routing table: {e}")
+        local_ip = socket.gethostbyname(hostname)
+        print(f"Container hostname: {hostname}")
+        print(f"Container IP: {local_ip}")
+    except:
+        print(f"Container hostname: {hostname}")
 
 if __name__ == "__main__":
     redis_host = os.getenv('REDIS_HOST', 'your-redis-ip-here')
