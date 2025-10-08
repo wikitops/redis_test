@@ -50,4 +50,4 @@ def diagnose_redis_connection(redis_host, redis_port):
 if __name__ == "__main__":
     redis_host = os.getenv('REDIS_HOST', 'your-redis-ip-here')
     redis_port = os.getenv('REDIS_PORT', '6379')
-    diagnose_redis_connection(redis_host)
+    diagnose_redis_connection(redis_host, redis_port)
