@@ -3,7 +3,7 @@ import socket
 import subprocess
 import os
 
-def diagnose_redis_connection(redis_host, redis_port):
+def diagnose_redis_connection(redis_host, redis_port=6378):
     print("🔍 Diagnosing Redis Connection...")
     
     # 1. Check if we can resolve the hostname
@@ -49,5 +49,4 @@ def diagnose_redis_connection(redis_host, redis_port):
 
 if __name__ == "__main__":
     redis_host = os.getenv('REDIS_HOST', 'your-redis-ip-here')
-    redis_port = os.getenv('REDIS_PORT', 6379)
-    diagnose_redis_connection(redis_host, redis_port)
+    diagnose_redis_connection(redis_host)
